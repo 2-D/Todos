@@ -33,7 +33,7 @@ struct TodosView: View {
                 
                 Button("Submit") {
                     guard !addTodoTextFieldText.isEmpty else { return }
-                    let item = TodoItem(description: addTodoTextFieldText, date: Date())
+                    let item = TodoItem(title: addTodoTextFieldText, date: Date())
                     viewModel.addItem(item)
                     addTodoTextFieldText = ""
                 }
@@ -49,14 +49,14 @@ struct TodosView: View {
                 List {
                     ForEach(viewModel.todoItems) { item in
                         HStack {
-                            Text("\(item.description)")
+                            Text("\(item.title)")
                             Spacer()
                             Text("\(item.date.formatted(date: .abbreviated, time: .shortened))")
                                 .foregroundColor(Color(dateTextColor))
                         }
                         .onTapGesture {
                             presentAlert = true
-                            editTodoTextFieldText = item.description
+                            editTodoTextFieldText = item.title
                             editedItem = item
                         }
                     }

@@ -9,7 +9,7 @@ import Foundation
 
 struct TodoItem: Identifiable, Equatable {
     var id = UUID()
-    var description: String
+    var title: String
     var date: Date
 }
 
@@ -32,7 +32,7 @@ final class TodosViewModel: ObservableObject {
     func edit(item: TodoItem, description: String) {
         guard let itemIndex = todoItems.firstIndex(of: item) else { return }
         var item = todoItems[itemIndex]
-        item.description = description
+        item.title = description
         item.date = Date()
         todoItems[itemIndex] = item
     }
