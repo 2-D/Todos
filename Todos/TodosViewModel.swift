@@ -29,10 +29,10 @@ final class TodosViewModel: ObservableObject {
         todoItems.remove(at: index)
     }
     
-    func edit(item: TodoItem, description: String) {
+    func edit(item: TodoItem, title: String) {
         guard let itemIndex = todoItems.firstIndex(of: item) else { return }
         var item = todoItems[itemIndex]
-        item.title = description
+        item.title = title
         item.date = Date()
         todoItems[itemIndex] = item
     }
