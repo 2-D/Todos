@@ -8,7 +8,7 @@
 import Foundation
 
 struct TodoItem: Identifiable, Equatable {
-    var id = UUID()
+    var id: UUID
     var title: String
     var date: Date
 }
@@ -20,7 +20,12 @@ final class TodosViewModel: ObservableObject {
         
     }
     
-    func addItem(_ item: TodoItem) {
+    func addItem(title: String) {
+        let item = TodoItem(
+            id: UUID(),
+            title: title,
+            date: Date()
+        )
         todoItems.append(item)
     }
     

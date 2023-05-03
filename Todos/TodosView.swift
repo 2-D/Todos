@@ -33,8 +33,7 @@ struct TodosView: View {
                 
                 Button("Submit") {
                     guard !addTodoTextFieldText.isEmpty else { return }
-                    let item = TodoItem(title: addTodoTextFieldText, date: Date())
-                    viewModel.addItem(item)
+                    viewModel.addItem(title: addTodoTextFieldText)
                     addTodoTextFieldText = ""
                 }
                 .font(.headline)
