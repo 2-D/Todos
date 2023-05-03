@@ -72,7 +72,7 @@ struct TodosView: View {
                 }
                 Button("Submit") {
                     guard let item = editedItem else { return }
-                    viewModel.edit(item: item, description: editTodoTextFieldText)
+                    viewModel.edit(item: item, title: editTodoTextFieldText)
                 }
             }, message: {
                 TextField("TextField", text: $editTodoTextFieldText)
